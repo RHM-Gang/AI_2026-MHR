@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f4ec" />
+  <meta name="description" content="Learn French with Felin French — warm, personal lessons that make every word feel like yours." />
+  <title>Felin French — Find your French</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f8f4ec;
+      --paper: #fffdf8;
+      --ink: #252d2a;
+      --muted: #69726b;
+      --green: #275b4a;
+      --green-dark: #1d483b;
+      --lime: #d7e4a2;
+      --coral: #df755c;
+      --line: rgba(37,45,42,.14);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--coral); }
+    header { height: 82px; display: flex; align-items: center; border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-family: var(--serif); font-weight: 700; font-size: 21px; letter-spacing: -.04em; }
+    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: var(--cream); background: var(--green); font: 700 14px var(--sans); }
+    .nav-links { display: flex; align-items: center; gap: 34px; color: #515a54; font-size: 13px; font-weight: 600; }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-cta { padding: 12px 18px; color: white !important; border-radius: 999px; background: var(--green); transition: background .2s, transform .2s; }
+    .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .hero { min-height: 600px; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 54px; padding: 72px 0 82px; }
+    .hero-copy { padding: 0 0 8px 12px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 580px; margin: 22px 0 20px; font: 600 clamp(52px, 6vw, 78px)/1.04 var(--serif); letter-spacing: -.055em; }
+    h1 em { color: var(--green); font-weight: 500; }
+    .hero-copy > p { max-width: 440px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+    .hero-actions { display: flex; align-items: center; gap: 23px; margin-top: 31px; }
+    .button { display: inline-flex; align-items: center; gap: 12px; padding: 15px 21px; border-radius: 999px; color: white; background: var(--green); font-size: 13px; font-weight: 700; transition: .2s ease; }
+    .button:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .text-link { color: var(--green); font-size: 13px; font-weight: 700; }
+    .text-link span { margin-left: 5px; }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 48px; color: var(--muted); font-size: 12px; }
+    .faces { display: flex; padding-left: 4px; }
+    .face { display: grid; place-items: center; width: 31px; height: 31px; margin-left: -5px; border: 2px solid var(--cream); border-radius: 50%; background: var(--lime); font-size: 13px; }
+    .face:nth-child(2) { background: #edc8b6; }.face:nth-child(3) { background: #d5dced; }
+    .hero-art { position: relative; min-height: 440px; display: grid; place-items: center; }
+    .art-backdrop { position: absolute; inset: 22px 22px 22px 36px; border-radius: 48% 48% 44% 44% / 43% 43% 42% 42%; background: #e6e7cf; transform: rotate(4deg); }
+    .art-photo { position: relative; width: min(100%, 426px); height: 426px; overflow: hidden; border-radius: 49% 49% 43% 43% / 42% 42% 47% 47%; background: #d8dbc5; box-shadow: 0 20px 50px rgba(52,72,57,.13); }
+    .art-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .stamp { position: absolute; z-index: 1; top: 27px; right: -1px; width: 106px; height: 106px; display: grid; place-items: center; border-radius: 50%; color: var(--green); background: var(--lime); text-align: center; font: 600 15px/1.25 var(--serif); transform: rotate(9deg); }
+    .floating-card { position: absolute; z-index: 1; bottom: 49px; left: -6px; display: flex; align-items: center; gap: 12px; padding: 13px 17px; border: 1px solid rgba(255,255,255,.65); border-radius: 15px; background: rgba(255,253,248,.93); box-shadow: 0 12px 35px rgba(29,50,39,.1); }
+    .card-icon { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 11px; background: #f6dfcf; font-size: 17px; }
+    .floating-card strong { display: block; font: 600 14px var(--serif); }
+    .floating-card small { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .ribbon { padding: 21px 0; color: var(--paper); background: var(--green); }
+    .ribbon-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .ribbon-item { display: flex; align-items: center; gap: 11px; font-size: 12px; font-weight: 600; letter-spacing: .02em; }
+    .ribbon-item span { color: var(--lime); font-size: 17px; }
+    section { scroll-margin-top: 28px; }
+    .about { padding: 112px 0 118px; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; align-items: start; }
+    h2 { margin: 18px 0 20px; font: 600 clamp(38px, 4.3vw, 54px)/1.12 var(--serif); letter-spacing: -.045em; }
+    .about-intro p, .about-copy p { color: var(--muted); font-size: 14px; line-height: 1.9; }
+    .about-copy { padding-top: 4px; }
+    .about-copy .lead { color: var(--ink); font: 500 20px/1.65 var(--serif); }
+    .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 23px; margin-top: 38px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .value strong { display: block; margin-bottom: 8px; color: var(--green); font: 600 16px var(--serif); }
+    .value span { color: var(--muted); font-size: 11px; line-height: 1.6; }
+    .contact { position: relative; overflow: hidden; padding: 94px 0; color: var(--paper); background: var(--green-dark); }
+    .contact::after { content: "bonjour"; position: absolute; right: -24px; bottom: -88px; color: rgba(255,255,255,.035); font: 700 220px var(--serif); letter-spacing: -.08em; pointer-events: none; }
+    .contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr .78fr; gap: 90px; align-items: center; }
+    .contact .eyebrow { color: var(--lime); }
+    .contact .eyebrow::before { background: var(--coral); }
+    .contact h2 { max-width: 530px; margin-bottom: 16px; }
+    .contact-copy > p { max-width: 440px; color: rgba(255,253,248,.72); font-size: 14px; line-height: 1.8; }
+    .contact-card { padding: 29px; border: 1px solid rgba(255,255,255,.15); border-radius: 18px; background: rgba(255,255,255,.055); }
+    .contact-card h3 { margin-bottom: 8px; font: 600 22px var(--serif); }
+    .contact-card > p { margin-bottom: 22px; color: rgba(255,253,248,.65); font-size: 12px; line-height: 1.7; }
+    .contact-row { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.14); }
+    .contact-icon { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 50%; color: var(--green-dark); background: var(--lime); font-size: 14px; }
+    .contact-row small { display: block; margin-bottom: 3px; color: rgba(255,253,248,.56); font-size: 10px; }
+    .contact-row a, .contact-row address { font-size: 12px; font-style: normal; font-weight: 600; }
+    .contact-row a:hover { color: var(--lime); }
+    footer { padding: 22px 0; color: var(--muted); background: var(--green-dark); border-top: 1px solid rgba(255,255,255,.14); font-size: 10px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { color: var(--paper); font: 600 15px var(--serif); }
+    .footer-note { color: rgba(255,253,248,.58); }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      header { height: 70px; }
+      .nav-links { gap: 17px; font-size: 12px; }
+      .nav-links .nav-cta { padding: 10px 13px; }
+      .hero { grid-template-columns: 1fr; gap: 33px; padding: 64px 0 54px; }
+      .hero-copy { padding-left: 0; }
+      h1 { font-size: clamp(53px, 13vw, 72px); }
+      .hero-art { min-height: 380px; }
+      .art-photo { width: min(83vw, 365px); height: min(83vw, 365px); }
+      .art-backdrop { inset: 16px 17px 16px 28px; }
+      .stamp { right: 3px; top: 12px; width: 88px; height: 88px; font-size: 13px; }
+      .floating-card { left: 0; bottom: 27px; }
+      .ribbon-inner { justify-content: center; flex-wrap: wrap; gap: 14px 24px; }
+      .ribbon-item { font-size: 10px; }
+      .about { padding: 77px 0 82px; }
+      .about-grid { grid-template-columns: 1fr; gap: 20px; }
+      .about-intro p { max-width: 420px; }
+      .values { gap: 13px; }
+      .contact { padding: 72px 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+      .contact::after { font-size: 120px; bottom: -36px; }
+    }
+    @media (max-width: 420px) {
+      .brand { font-size: 18px; gap: 8px; }
+      .nav-links { gap: 12px; }
+      .nav-links a:first-child { display: none; }
+      .hero-actions { gap: 15px; }
+      .button { padding: 14px 16px; }
+      .values { grid-template-columns: 1fr; gap: 17px; }
+      .footer-inner { gap: 12px; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Felin French home"><span class="brand-mark">F</span> Felin French</a>
+      <div class="nav-links">
+        <a href="#about">About us</a>
+        <a href="#contact" class="nav-cta">Say bonjour <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow">French, with feeling</span>
+        <h1 id="hero-title">A little more<br />French in <em>your life.</em></h1>
+        <p>Real conversation, thoughtful teaching, and the confidence to find your own voice — wherever your French takes you.</p>
+        <div class="hero-actions">
+          <a class="button" href="#contact">Let’s get talking <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#about">Meet Felin <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-note">
+          <div class="faces" aria-hidden="true"><span class="face">☺</span><span class="face">✿</span><span class="face">☼</span></div>
+          <span>Small classes. Big “I can do this” energy.</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="A bright Parisian café, ready for a French conversation">
+        <div class="art-backdrop"></div>
+        <div class="art-photo"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1100&q=85" alt="Paris rooftops and the Eiffel Tower in the soft afternoon light" /></div>
+        <div class="stamp">Parlez<br />avec joie!<br /><span aria-hidden="true">✳</span></div>
+        <div class="floating-card"><span class="card-icon" aria-hidden="true">☕</span><span><strong>Ça commence ici.</strong><small>Your next chapter in French</small></span></div>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-label="Our teaching approach">
+      <div class="ribbon-inner wrap">
+        <div class="ribbon-item"><span aria-hidden="true">✳</span> Friendly, personal lessons</div>
+        <div class="ribbon-item"><span aria-hidden="true">✳</span> Practical French for real life</div>
+        <div class="ribbon-item"><span aria-hidden="true">✳</span> Progress at your own pace</div>
+      </div>
+    </div>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about-grid wrap">
+        <div class="about-intro">
+          <span class="eyebrow">A little about us</span>
+          <h2 id="about-title">French lessons,<br />the human way.</h2>
+          <p>Because learning a language should feel less like a textbook and more like opening a door.</p>
+        </div>
+        <div class="about-copy">
+          <p class="lead">At Felin French, we make space for curiosity, happy mistakes, and those lovely little moments when it all clicks.</p>
+          <p>Whether you’re starting with bonjour or finding your rhythm again, our lessons meet you where you are. We focus on useful conversation, clear guidance, and a warm, encouraging atmosphere — so you can take French beyond the classroom and into your life.</p>
+          <div class="values">
+            <div class="value"><strong>Made for you</strong><span>Lessons shaped around your goals and interests.</span></div>
+            <div class="value"><strong>Learn by talking</strong><span>Useful phrases, natural conversation, real confidence.</span></div>
+            <div class="value"><strong>Kind by design</strong><span>A relaxed place to try, learn, and grow.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-grid wrap">
+        <div class="contact-copy">
+          <span class="eyebrow">Your French starts here</span>
+          <h2 id="contact-title">Ready when<br />you are.</h2>
+          <p>Tell us what you’d love to learn. We’ll help you find the right class and take that first, lovely step.</p>
+        </div>
+        <div class="contact-card">
+          <h3>Come say bonjour</h3>
+          <p>Questions, class enquiries, or just want to practise your first bonjour? We’d love to hear from you.</p>
+          <div class="contact-row"><span class="contact-icon" aria-hidden="true">✉</span><span><small>Email us</small><a href="mailto:bonjour@felinfrench.com">bonjour@felinfrench.com</a></span></div>
+          <div class="contact-row"><span class="contact-icon" aria-hidden="true">⌖</span><span><small>Find your class</small><address>Friendly online lessons, wherever you are</address></span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner wrap"><a href="#home" class="footer-brand">Felin French</a><span class="footer-note">A little French goes a long way. <span aria-hidden="true">♥</span></span><span>© 2026 Felin French</span></div>
+  </footer>
+</body>
+</html>
